@@ -16,9 +16,9 @@ Group 47 followed the approach of having each member independently develop their
 
 | Member  | Student ID | Project Name   | Description           | Link                                      |
 |----------|-----------|-------------|-----------------------|-------------------------------------------|
-| 박재민   | 201835457 | **Project A**  | des.. | [README](./201835457%20박재민/README.md)     |
-| 이민지   | 202235083 | **Project B**  | des..   | [README](./202235083%20이민지/README.md)     |
-| 유정규   | 202434641 | **Project C**  | des..     | [README](./202434641%20유정규/README.md)     |
+| 박재민   | 201835457 | **Project A**  | des.. | [README](./201835457%20박재민)     |
+| 이민지   | 202235083 | **Project B**  | des..   | [README](./202235083%20이민지)     |
+| 유정규   | 202434641 | **Project C**  | des..     | [README](./202434641%20유정규)     |
 
 
 ## Contribution Guidelines
