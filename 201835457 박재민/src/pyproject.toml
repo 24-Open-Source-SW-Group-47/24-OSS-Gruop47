@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "risk-analyzer"
+version = "1.0.0"
+description = "A tool for analyzing risk-related text from files"
+license = { text = "MIT" }
+dependencies = [
+    "nltk>=3.8",
+    "tabulate>=0.9.0",
+    "pandas>=1.5.3",
+    "PyPDF2>=3.0.1",
+    "python-docx>=0.8.11",
+    "transformers>=4.31.0",
+    "torch>=2.0.0"
+]
+
+[project.scripts]
+risk-analyzer = "main:main"
