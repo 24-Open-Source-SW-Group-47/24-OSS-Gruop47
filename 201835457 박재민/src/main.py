@@ -1,19 +1,26 @@
-from src.ocr import extract_text
-from src.nlp import analyze_text
-from src.gps import extract_gps_info
+import os
+from preprocess import process_file
+from analyze import analyze_risks, display_risks
 
-def main(image_path):
-    text = extract_text(image_path)
-    if not text:
-        print("No text detected in the image.")
-        return
-    sentiment, summary = analyze_text(text)
-    gps_info = extract_gps_info(image_path)
+def main():
+    input_folder = "./insert_data"
+    risk_categories = [
+        "financial risk",
+        "legal liability",
+        "contractual obligation",
+        "data privacy issue",
+        "compliance risk"
+    ]
 
-    print("Extracted Text:", text)
-    print("Sentiment Analysis:", sentiment)
-    print("Summary:", summary)
-    print("GPS Information:", gps_info or "No location data found.")
+    for file_name in os.listdir(input_folder):
+        file_path = os.path.join(input_folder, file_name)
+        print(f"Processing file: {file_name}")
+        try:
+            sentences = process_file(file_path)
+            risks = analyze_risks(sentences, risk_categories)
+            display_risks(risks)
+        except ValueError as e:
+            print(e)
 
 if __name__ == "__main__":
-    main("path/to/image.jpg")
+    main()
