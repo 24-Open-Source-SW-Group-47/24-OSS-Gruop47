@@ -1,4 +1,4 @@
-# Risk Analysis Tool
+# Document Risk Analyzer
 
 This project provides a comprehensive solution for analyzing risk-related content from various file formats ``(PDF, DOCX, TXT)``. It leverages advanced text extraction, ``natural language processing (NLP) `` techniques, and ``zero-shot classification`` models to identify and categorize potential risks. The tool is modular and extensible, making it suitable for diverse use cases.
 
