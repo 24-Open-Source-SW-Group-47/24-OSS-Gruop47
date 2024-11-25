@@ -2,11 +2,6 @@
 
 This project provides a comprehensive solution for analyzing risk-related content from various file formats ``(PDF, DOCX, TXT)``. It leverages advanced text extraction, ``natural language processing (NLP) `` techniques, and ``zero-shot classification`` models to identify and categorize potential risks. The tool is modular and extensible, making it suitable for diverse use cases.
 
-![Project Overview](image/Example1_(compliance_risks_result).png)
-![Workflow](image/Example2_(financial_risks).png)
-![Risk Detection](image/Example3_(legal_risks).png)
-![Output Example](image/result.png)
-
 
 ## 1. Project Overview
 
@@ -28,13 +23,13 @@ This project provides a comprehensive solution for analyzing risk-related conten
 Here is an overview of the workflow and results:
 
 #### Example 1: Compliance Risks Result
-![Compliance Risks Result](image/Example1_(compliance_risks_result).png)
+![Compliance Risks Result](src/image/Example1_(compliance_risks_result).png)
 
 #### Example 2: Financial Risks
-![Financial Risks](image/Example2_(financial_risks).png)
+![Financial Risks](src/image/Example2_(financial_risks).png)
 
 #### Example 3: Legal Risks
-![Legal Risks](image/Example3_(legal_risks).png)
+![Legal Risks](src/image/Example3_(legal_risks).png)
 
 #### Summary of Results
 ![Summary](image/result.png)
