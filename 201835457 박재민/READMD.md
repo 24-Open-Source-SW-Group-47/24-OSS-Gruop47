@@ -29,10 +29,10 @@ Here is an overview of the workflow and results:
 ![Financial Risks](src/image/Example2_(financial_risks).png)
 
 #### Example 3: Legal Risks
-![Legal Risks](src/image/Example3_(legal_risks).png)
+![Legal Risks](src/image/Example3_(legal_risks.docx).png)
 
 #### Summary of Results
-![Summary](image/result.png)
+![Summary](src/image/result.png)
 
 
 ## 2. Setup and Installation
