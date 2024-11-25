@@ -1,108 +1,168 @@
-# Image-Based Text Localization
+# Risk Analysis Tool
 
-This project is a team project for 24-Open Source Software and is being conducted using ``Hugging Face`` and ``OpenCV``.
+This project provides a comprehensive solution for analyzing risk-related content from various file formats ``(PDF, DOCX, TXT)``. It leverages advanced text extraction, ``natural language processing (NLP) `` techniques, and ``zero-shot classification`` models to identify and categorize potential risks. The tool is modular and extensible, making it suitable for diverse use cases.
 
-The topic is ``Image-Based Text Localization``, aiming to create an open-source solution that helps users determine the location where an image was captured, even in the absence of metadata. The project extracts text from the image, analyzes it, and utilizes the extracted information to identify the image's location.
+![Project Overview](image/Example1_(compliance_risks_result).png)
+![Workflow](image/Example2_(financial_risks).png)
+![Risk Detection](image/Example3_(legal_risks).png)
+![Output Example](image/result.png)
 
 
 ## 1. Project Overview
-- **Feature Definition**
-    - Extra text from images (OCR)
-    - Analyze text
-    - Determine the image's location
-- **Technology Stack**
-    - ``Python``
-    - ``OpenCV``
-    - ``Tesseract OCR``
-    - ``HuggingFace Transformers``
 
-## 2. Module Development
+### 1.1 Features
+- **Document Processing**: Extracts text from multiple file formats (PDF, DOCX, TXT).
+- **Text Analysis**: Identifies and categorizes risk-related content using NLP models.
+- **Risk Categorization**: Supports predefined risk categories and allows for zero-shot classification for dynamic categorization.
+- **Result Visualization**: Outputs risk analysis in a tabular format for better readability.
 
-### 2.1. Extract Text from Images
-**Tesseract OCR Configuration:** Implement OCR using PyTesseract after installing Tesseract. Use OpenCV for image preprocessing (e.g., noise reduction, grayscale conversion).
+### 1.2 Technology Stack
+- **Python**
+- **Libraries**:
+    - ``PyPDF2``, ``python-docx`` for document handling
+    - ``transformers`` for NLP models
+    - ``tabulate``, ``pandas`` for result visualization
+    - ``nltk`` for text preprocessing
 
-``` python
-import cv2
-import pytesseract
+### 1.3 Project Workflow
+Here is an overview of the workflow and results:
 
-def extract_text(image_path):
-    img = cv2.imread(image_path)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    text = pytesseract.image_to_string(gray)
-    return text
-```
+#### Example 1: Compliance Risks Result
+![Compliance Risks Result](image/Example1_(compliance_risks_result).png)
 
-### 2.2 Text Analysis
-**Text Analysis using HuggingFace Transformers:**
-- Sentiment analysis model: ``distilbert-base-uncased-finetuned-sst-2-english``
-- Summarization model: ``t5-small``
+#### Example 2: Financial Risks
+![Financial Risks](image/Example2_(financial_risks).png)
 
-``` python
-from transformers import pipeline
+#### Example 3: Legal Risks
+![Legal Risks](image/Example3_(legal_risks).png)
 
-def analyze_text(text):
-    sentiment_analyzer = pipeline("sentiment-analysis")
-    summary_generator = pipeline("summarization")
-    sentiment = sentiment_analyzer(text)
-    summary = summary_generator(text, max_length=50, min_length=10, do_sample=False)
-    return sentiment, summary
-```
+#### Summary of Results
+![Summary](image/result.png)
 
-### 2.3 Extract Image Location Information
-**Extract GPS Information from Image Metadata:** Use Pillow or Exifread to read the GPS data from an image's metadata.
 
-``` python
-from PIL import Image
-from PIL.ExifTags import TAGS, GPSTAGS
+## 2. Setup and Installation
 
-def extract_gps_info(image_path):
-    img = Image.open(image_path)
-    exif_data = img._getexif()
-    if not exif_data:
-        return None
-    gps_info = {}
-    for tag, value in exif_data.items():
-        tag_name = TAGS.get(tag, tag)
-        if tag_name == "GPSInfo":
-            for key, val in value.items():
-                gps_tag = GPSTAGS.get(key, key)
-                gps_info[gps_tag] = val
-    return gps_info
-```
+### 2.1 Requirements
+Ensure that the following tools and packages are installed:
+- Python 3.8 or later
+- ``pip`` for managing Python packages
 
-## 3. Test Image
+### 2.2 Installation
+1. Clone the repository:
+    ``` bash 
+    git clone https://github.com/24-Open-Source-SW-Group-47/24-OSS-Gruop47.git
+    cd 201835457 박재민
+    ```
+2. Install dependencies:
+    ``` bash 
+    pip install -r requirements.txt
+    ```
+3. Verify the installation:
+    ``` bash 
+    python -c "import nltk, pandas, tabulate, transformers; print('All dependencies are installed!')"
+    ```
+
+## 3. How to Use
+
+### 3.1 Input Data
+- Prepare the documents to be analyzed and place them in the ``insert_data/`` folder. Supported formats: ``.pdf``, ``.docx``, ``.txt``.
+
+### 3.2 Output
+- The tool provides:
+    - Risk analysis for each file processed.
+    - A summary table of all detected risks across all files.
+    - Example console output:
+    ``` bash
+    --- Results for File: compliance_risks.txt ---
+    Detected Risks:
+    Risk 1:
+        - Sentence: "Delays in filing tax documents, leading to penalties."
+        - Category: "tax filing delays"
+        - Confidence Score: 0.73
+
+    --- Summary of All Detected Risks ---
+    +----------------------+-----------------------------------------+---------------------+--------------------+
+    | File Name            | Sentence                                | Category            | Confidence Score   |
+    +----------------------+-----------------------------------------+---------------------+--------------------+
+    | compliance_risks.txt | Delays in filing tax documents, ...    | tax filing delays   | 0.73              |
+    +----------------------+-----------------------------------------+---------------------+--------------------+
+    ```
 
 ## 4. Project Structure
-The project is managed with a modular structure:
-
-```
+The project follows a modular structure for better maintainability and extensibility.
+``` bash
 ├── src/
-│   ├── ocr.py         # Module for text extraction
-│   ├── nlp.py         # Module for NLP analysis
-│   ├── gps.py         # Module for location tracking
-│   └── main.py        # Integration and execution script
-├── tests/             # Unit test code
-├── README.md          # Project description
-├── requirements.txt   # Required packages
-└── setup.py           # Installation script
+│   ├── insert_data/          # Input files for risk analysis
+│   ├── analyze.py        # Risk detection using NLP models
+│   ├── main.py           # Main script to orchestrate processing and analysis
+│   └── preprocess.py     # Text extraction and preprocessing
+├── requirements.txt      # List of required Python packages
+├── pyproject.toml        # Package setup configuration
+└── README.md             # Project description
 ```
 
-## 5. User Guide
-### 5.1 Installation Guide
-Provide detailed steps on how to set up and install the project, including:
+## 5. Module Details
 
-### 5.2 MIT License
-- The project is distributed under the **MIT License**.
-- Include the full license text in a ``LICENSE file`` within the repository.
-- Mention key points, such as:
-    - Free use, modification, and distribution
-    - No warranty or liability
+### 5.1 Text Extraction
+The ``preprocess.py`` module handles text extraction from different file formats:
+- **PDF**: Uses ``PyPDF2``.
+- **DOCX**: Uses ``python-docx``.
+- **TXT**: Simple file reading.
+- Includes preprocessing steps such as:
+    - Removing special characters.
+    - Splitting text into sentences.
 
-### 5.3 Example Data and Execution Instructions
+### 5.2. Risk Detection
+The ``analyze.py`` module performs risk detection:
+- Uses ``Hugging Face Transformers`` for text classification.
+- Supports zero-shot classification for dynamically adding risk categories.
 
-### 5.4 Issue Tracker and Pull Request Policy
-- **Issue Tracker**: Encourage users to report bugs or suggest new features via the repository's issue tracker on GitHub.
-- **Pull Request Policy**:
-    - Contributors should follow coding guidelines and provide detailed descriptions of changes.
-    - Ensure proper testing before submitting pull requests.
-    - All contributions will be reviewed before merging.
+### 5.3. Integration
+The ``main.py`` module integrates all components:
+- Iterates through the files in the ``insert_data/`` folder.
+- Processes each file for risk detection.
+- Displays individual results and a consolidated summary.
+
+
+## 6. Predefined Risk Categories
+The tool supports the following predefined categories:
+- Financial Risks: ``budget overruns``, ``penalty clauses``, ``currency exchange fluctuations``.
+- Legal Risks: ``breach of contract``, ``data breach penalties``, ``intellectual property violations``.
+- Operational Risks: ``system downtime``, ``lack of contingency planning``, ``workplace hazards``.
+- Custom Categories: Add new categories dynamically using zero-shot classification.
+
+## 7. Example Usage
+
+#### 7.1 Input
+Place a document, such as ``compliance_risks.txt``, in the ``insert_data/`` folder with the following content:
+``` css
+Delays in filing tax documents, leading to penalties.
+```
+
+#### 7.2 Command
+Run the tool:
+``` bash
+python src/main.py
+```
+
+#### 7.3 Output
+Results in the console:
+```  yaml
+--- Results for File: compliance_risks.txt ---
+Detected Risks:
+Risk 1:
+  - Sentence: "Delays in filing tax documents, leading to penalties."
+  - Category: "tax filing delays"
+  - Confidence Score: 0.73
+```
+
+## 8. License
+This project is licensed under the ``MIT License``. See the LICENSE file for details.
+
+## 9. Contribution Guidelines
+#### 9.1 Issue Tracker
+- Report bugs or request features through the GitHub issue tracker.
+
+#### 9.2 Pull Requests
+- Follow coding standards and provide unit tests for changes.
+- Ensure code is thoroughly tested before submitting.
