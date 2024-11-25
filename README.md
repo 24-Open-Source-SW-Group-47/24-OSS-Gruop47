@@ -12,11 +12,9 @@ In this project, each member has developed an independent open-source software a
 ## Members and Project List
 Group 47 followed the approach of having each member independently develop their own open-source software and upload it in separate folders as part of the term project.
 
-
-
 | Member  | Student ID | Project Name   | Description           | Link                                      |
 |----------|-----------|-------------|-----------------------|-------------------------------------------|
-| 박재민   | 201835457 | **Project A**  | des.. | [README](./201835457%20박재민)     |
+| 박재민   | 201835457 | **Document Risk Analyzer**  | A Python-based tool to analyze documents for potential risks, supporting PDF, DOCX, and TXT formats. The tool extracts text, classifies risk-related sentences using HuggingFace models, and visualizes results in a structured table format. | [README](./201835457%20박재민)     |
 | 이민지   | 202235083 | **Project B**  | des..   | [README](./202235083%20이민지)     |
 | 유정규   | 202434641 | **Project C**  | des..     | [README](./202434641%20유정규)     |
 
