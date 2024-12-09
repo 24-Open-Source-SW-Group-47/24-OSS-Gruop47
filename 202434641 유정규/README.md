@@ -74,8 +74,8 @@ After completing these steps, the program will process the image, apply the mosa
 - Closing the window will exit the program.
 
 ## Example Screenshot
-- ![[Pasted image 20241210003310.png]]
-- ![[Pasted image 20241210003243.png]]
+- ![[e1.png]]
+- ![[e2.png]]
 ## Notes
 
 - The script uses the YOLOv3 model, which may not detect objects perfectly. For better accuracy, consider using newer models like YOLOv4 or YOLOv5.
