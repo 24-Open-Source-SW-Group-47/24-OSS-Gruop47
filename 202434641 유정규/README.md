@@ -32,7 +32,7 @@ pip install opencv-python numpy
     
     Place these files in the same directory as the script.
     
-2. **COCO class names file (`coco.names`)**
+2. **Download COCO class names file**
     
     - Download the [COCO class names file](https://github.com/pjreddie/darknet/blob/master/data/coco.names) and place it in the project directory.
 
