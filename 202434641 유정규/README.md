@@ -74,8 +74,8 @@ After completing these steps, the program will process the image, apply the mosa
 - Closing the window will exit the program.
 
 ## Example Screenshot
-- ![[e1.png]]
-- ![[e2.png]]
+- ![Example 1](https://github.com/jkyu03/24-OSS-Gruop47/blob/main/202434641%20%EC%9C%A0%EC%A0%95%EA%B7%9C/src/image/e1.PNG)
+- ![Example 2](https://github.com/jkyu03/24-OSS-Gruop47/blob/main/202434641%20%EC%9C%A0%EC%A0%95%EA%B7%9C/src/image/e2.PNG)
 ## Notes
 
 - The script uses the YOLOv3 model, which may not detect objects perfectly. For better accuracy, consider using newer models like YOLOv4 or YOLOv5.
