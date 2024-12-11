@@ -28,14 +28,3 @@ This project uses Hugging Face's `transformers` library to perform emotion analy
 - Matplotlib (Version: 3.7.2)
 - Pandas (Version: 2.1.0)
 
-
-## Projct structure
-/emotion-analysis
-├── data/                   # Input text data
-├── images/                 # Stored visualizations
-├── notebooks/              # Jupyter Notebook files
-├── results/                # Output visualization files
-├── main.py                 # Main script
-├── requirements.txt        # Dependency file
-└── README.md               # Project documentation
-
