@@ -16,7 +16,7 @@ Group 47 followed the approach of having each member independently develop their
 |----------|-----------|-------------|-----------------------|-------------------------------------------|
 | 박재민   | 201835457 | **Document Risk Analyzer**  | A Python-based tool to analyze documents for potential risks, supporting PDF, DOCX, and TXT formats. The tool extracts text, classifies risk-related sentences using HuggingFace models, and visualizes results in a structured table format. | [README](./201835457%20박재민)     |
 | 이민지   | 202235083 | **Project B**  | des..   | [README](./202235083%20이민지)     |
-| 유정규   | 202434641 | **Project C**  | des..     | [README](./202434641%20유정규)     |
+| 유정규   | 202434641 | **Vision-Based Object Mosaic**  | A Python-based tool that detects and applies mosaic effects to specific objects in images using computer vision techniques. The tool supports customizable mosaic strength, processes images via pre-trained YOLO models, and allows users to obscure desired objects by targeting them directly.     | [README](./202434641%20유정규)     |
 
 
 ## Contribution Guidelines
